@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="ie=chrome">
+    <title>Impressão de carteirinha - Coração sertanejo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&display=swap" rel="stylesheet">
+
+    <style>
+		body{
+			width: 1134px;
+			height:768px;
+			max-width: 1134px;
+			margin: 0 auto;
+		}
+		.carteira {
+            width: 1134px;
+            height: 768px;
+			max-height: 768px;
+            background-color: #54312E;
+			border:1px solid #54312E
+        }
+
+		.logo{
+			width: 300px;
+		}
+		
+		.ondasl{
+			width:400px;
+			float:left;
+			margin-left:0px;
+			margin-top:-145px;
+		}
+		
+		.ondasr{
+			width:400px;
+			float:right;
+			margin-right:0px;
+			margin-top:-158px;
+		}
+		
+		.inverter{
+		    -moz-transform: scaleX(-1);
+			-o-transform: scaleX(-1);
+			-webkit-transform: scaleX(-1);
+			transform: scaleX(-1);
+		}
+		
+		.faixa{
+			background-color: #F4B43B;
+			height: 10px;
+			width:1134px;
+			top:190px;
+			position:absolute;
+		}
+		
+		.tipo{
+			width:350px;
+			background-color:#54312E;
+			height:30px;
+			color:white;
+			margin-top: -15px;
+			font-family:Montserrat;
+			font-weight:bold;
+			line-height:30px;
+			border-radius:8px;
+			font-size:22px;
+		}
+		
+		.assinatura{
+			width:250px;
+			background-color:#54312E;
+			height:30px;
+			color:white;
+			top:520px;
+			position:relative;
+			font-family:montserrat;
+			font-weight:bold;
+			line-height:30px;
+			border-radius:8px;
+			font-size:18px;
+			text-align:center;
+			margin: 0 auto;
+		}
+ 
+        .fundo {
+            top:200px;
+            position:absolute;
+            background-color: #B6A28B;
+            width: 1134px;
+            height:548px;
+        }
+		
+		.foto{
+			margin-top:35px;
+			margin-left:20px;
+			width:300px;
+			height:370px;
+			background-color:white;
+			border: 15px solid #54312E;
+			float:left;
+			text-align:center;
+			font-size:40px;
+			font-weight:bolder;
+			line-height:400px;
+			font-family:montserrat;
+			text-transform:uppercase;
+			position:absolute;
+			color:#54312E;
+			vertical-align:top;
+		}
+
+		.areatextos{
+			left:370px;
+			top:50px;
+			width:740px;
+			height:425px;
+			border:0px solid black;
+			position:absolute;
+		}
+		
+		.divisioninput{
+			height:5px;
+		}
+		
+		.labelinput{
+			font-family:Montserrat;
+			font-weight:bolder;
+			font-size: 14px;
+			color: #54312E;
+			padding-bottom:5px;
+		}
+		
+		.linhaass{
+			bottom:20px;
+			left:110px;
+			position:absolute;
+			width:80%;
+			border:1px dotted #54312E;
+		}
+		
+		.linha{
+			width:100%;
+			border:1px solid black;
+			vertical-align:middle;
+		}
+		input[type=text], input[type=date]{
+			color: #54312E;
+			width:235px;
+			height:50px;
+			font-weight:bolder;
+			font-size:20px;
+			line-height:50px;
+			text-align:center;
+			font-family:arial;
+			border-radius:10px;
+			text-transform:uppercase;
+			box-sizing: border-box;
+			border: 2px solid #ccc;
+			-webkit-border-radius: 25px;
+			-moz-border-radius: 25px;
+            border-radius: 25px;
+		}
+		#endereco{
+			width: 485px!important;
+		}
+
+		input[type=text]:hover, input[type=date]:hover{
+			background-color: #D6D2A2;
+			border:1px solid #54312E
+		}
+		
+		input[type=text]:focus, input[type=date]:focus{
+			background-color: #D6D2A2;
+			border:1px solid #54312E;
+			outline: 3px solid transparent;
+		}
+		
+		input[type=image]{
+			text-align:center;
+			font-size:40px;
+			font-family:Montserrat;
+		}
+		
+		input::placeholder {
+			color:#D1CDC8;
+		}
+		table{
+			border:0px solid black;
+			width:100%;
+			vertical-align:middle;
+			border-collapse:collapse;
+		}
+		
+		tr{
+			height:108px;	
+			vertical-align:top;			
+		}
+		td{
+			width:200px;
+			border:0px solid black;
+		}
+    </style>
+
+	
+    <script type="text/javascript">
+		window.onload = function () {
+			var fileupload = document.getElementById("FileUpload1");
+			var filePath = document.getElementById("spnFilePath");
+			var image = document.getElementById("imgFileUpload");
+			image.onclick = function () {
+				fileupload.click();
+			};
+			fileupload.onchange = function () {
+				var fileName = fileupload.value.split('\\')[fileupload.value.split('\\').length - 1];
+				filePath.innerHTML = "<b>Selected File: </b>" + fileName;
+			};
+		};
+
+		function changeImage() {
+			if (document.getElementById("fotoouvinte").src == "images/jose.png"){
+				document.getElementById("fotoouvinte").src = "images/jose.png";
+				
+			} else {
+				document.getElementById("fotoouvinte").src = "images/jose.png";
+			}
+		}
+		
+
+    </script>
+							
+</head>
+
+<body>
+
+    <div class="carteira">
+        <center><img class = "logo" src="images/logo.svg"/></center>
+			<div class="faixa"></div>
+			<div class="fundo">
+				<img class = "ondasl" src="images/ondas.svg"/>
+				<center><div class="tipo">CARTEIRINHA DO OUVINTE</div></center>
+				<img class = "ondasr inverter" src="images/ondas.svg"/>
+				<div class="foto">
+					<div><input alt="Insira sua foto "type="image" src="images/foto.png" height="370px" width="300px" ID="fotoouvinte" onclick="changeImage()"></input></div>
+				</div>
+				
+				<div class="areatextos">
+				<form>
+						<table>
+							<tr>
+								<td>
+									<div class="labelinput">MATRÍCULA</div><input type="text"placeholder="0000"name="matricula" id="matricula"></input>
+								</td>
+								<td>
+									<div class="labelinput">DATA DE INSCRIÇÃO</div><input type="date" placeholder="dd/mm/aaaa" name="Data" id="Data"></input>
+								</td>
+								<td>
+									<div class="labelinput">TELEFONE</div><input type="text" placeholder="(043)0-00000000" name="telefone" id="telefone"></input>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="labelinput">RG</div><input type="text" name="rg" id="rg"></input>
+								</td>
+								<td>
+									<div class="labelinput">CPF</div><input type="text" name="cpf" id="cpf"></input>
+								</td>
+								<td>
+									<div class="labelinput">DATA DE NASCIMENTO</div><input type="date" placeholder="dd/mm/aaaa" name="nascimento" id ="nasacimento"></input>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<div class="labelinput">ENDEREÇO</div><input type="text" name="endereco" id="endereco"></input>
+								</td>
+								<t></td>
+								<td>
+									<div class="labelinput">NÚMERO</div><input type="text" name="numero" id="numero"></input>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="labelinput">BAIRRO</div><input type="text" name="bairro" id="bairro"></input>
+								</td>
+								<td>
+									<div class="labelinput">CIDADE</div><input type="text" name="cidade" id="cidade" value="CORNÉLIO PROCÓPIO"></input>
+								</td>
+								<td>
+									<div class="labelinput">ESTADO</div><input type="text" name="estado" id ="estado" value="PARANÁ"></input>
+								</td>
+							</tr>							
+							
+						</table>
+				</form>
+				</div>
+				<div class="linhaass"></div>
+				<center><div class="assinatura">ASSINATURA DO TITULAR</div></center>
+			</div>
+			
+
+    </div>
+	
+
+</body>
+
+ 
+
+</html>
