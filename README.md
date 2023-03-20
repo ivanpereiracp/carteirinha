@@ -1,3 +1,3 @@
 # carteirinha
 Carteirinha do ouvinte rádio rainha da paz
-<a src="https://ivanpereiracp.github.io/carteirinha/">Carteinhinha</a>
+<a href="https://ivanpereiracp.github.io/carteirinha/">Carteirinha</a>
